@@ -58,4 +58,35 @@ end
 
 class BookInStock
 # YOUR CODE HERE
+  @isbn = ""
+  @price = 0
+  
+  def isbn #Getter definition
+    #puts "Getting the isbn."
+    return @isbn
+  end
+  def isbn=(new_isbn) #Setter definition
+    @isbn = new_isbn
+  end
+  
+  def price #Getter definition
+    #puts "Getting the price"
+    return @price
+  end
+  def price=(new_price) #Setter definition
+    @price = new_price
+  end
+  
+  def initialize(isbn_in, price_in)
+    if((isbn_in == "") || (price_in <= 0))
+      raise ArgumentError
+    end
+    @isbn = isbn_in
+    @price = price_in
+  end
+  
+  def price_as_string
+    result = sprintf('$%.2f', @price)
+    return result
+  end
 end
